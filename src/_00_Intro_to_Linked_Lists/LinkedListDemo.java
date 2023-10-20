@@ -31,6 +31,25 @@ public class LinkedListDemo {
          * String nodes.
          * 
          */
+    	
+    	LinkedList<String> colors = new LinkedList<String>();
+    	
+    	colors.add("red");
+    	colors.add("orange");
+
+    	//colors.remove(1);
+    	colors.print();
+    	
+    	Node current = colors.getHead();
+    	
+    	for(int i = 0; i < colors.size(); i++) {
+    		current.setValue(current.getValue().toString().toUpperCase());
+    		current = current.getNext();
+    	}
+    	
+    	colors.print();
+    	
+    	
 
     }
 
