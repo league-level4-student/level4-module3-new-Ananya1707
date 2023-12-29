@@ -1,5 +1,6 @@
 package _01_Spies_On_A_Train;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import _00_Intro_to_Linked_Lists.LinkedList;
@@ -28,19 +29,34 @@ public class SpiesOnATrain {
 
     	for(int i = 0 ; i < train.size(); i++) {
     		String testimony = ((TrainCar) currentPassenger.getValue()).questionPassenger();
-    		//String evidence = testimony.substring(testimony.indexOf("have"),testimony.length()-2);
     		//System.out.println(testimony);
-    		//System.out.println(currentPassenger.getValue().toString());
-    		String passengerName = currentPassenger.getValue().toString();
-    		//System.out.println(testimony.substring(testimony.lastIndexOf("saw") + 4, testimony.length()-1));
-    		String[] v = testimony.split(" ");
-    		System.out.println(v[13]);
+
+    		
+    		ArrayList<String> suspects = new ArrayList<String>();
+    		
     		
     		for(String c: clues) {
-    			System.out.println("clue:" + c);
+    			//System.out.println("clue:" + c);
     			
-    			if(testimony.equals(c)) {
-    				spy = currentPassenger.toString();
+    			if(testimony.indexOf(c) != -1) {
+    				String[] v = testimony.split(" ");
+    	    		//System.out.println(v[13]);
+    	    		suspects.add(v[13]);
+    			}
+    		}
+    		
+    		int maxCount = 0;
+    		for(String s: suspects) {
+        		int count = 0;
+    			for(String sus: suspects) {
+    				if(s.equals(sus)) {
+    					count++;
+    				}
+    			}
+    			
+    			if(maxCount < count) {
+    				maxCount = count;
+    				spy = s;
     			}
     		}
     		
