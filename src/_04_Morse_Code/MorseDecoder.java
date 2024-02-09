@@ -49,6 +49,7 @@ public class MorseDecoder {
         mcTree.insert(new MorseCode("q", "--.-"));
 
         mcTree.printVertical();
+        
 
     }
 

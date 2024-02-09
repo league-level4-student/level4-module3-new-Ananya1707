@@ -43,6 +43,7 @@ public class BinaryTreeDemo {
     	tree.insert(18);
     	
     	
+    	
     	//tree.printHorizontal();
     	tree.printVertical();
     	
